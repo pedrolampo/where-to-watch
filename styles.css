@@ -1,0 +1,57 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: monospace;
+}
+
+body {
+  color: white;
+  background-color: rgb(43, 41, 51);
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 2.5rem;
+  padding: 1rem;
+}
+
+form {
+  margin-bottom: 2rem;
+}
+
+.input {
+  outline: none;
+  background-color: rgb(43, 41, 51);
+  border: 1px solid grey;
+  border-radius: 0.5rem;
+  padding: 0.6rem 0.5rem;
+  font-size: 1rem;
+  color: white;
+  width: 20rem;
+  height: 2.5rem;
+}
+
+.input:focus {
+  border-color: white;
+}
+
+.search-btn {
+  height: 2.5rem;
+  background-color: grey;
+  outline: none;
+  border-radius: 0.5rem;
+  width: 4.5rem;
+  font-size: 1rem;
+  color: black;
+}
+
+.result {
+  font-size: 1.5rem;
+}
