@@ -41,9 +41,21 @@ searchBtn.addEventListener('click', (e) => {
             `https://streaming-availability.p.rapidapi.com/get/basic?country=ar&tmdb_id=${title.tmdb_type}%2F${title.tmdb_id}&output_language=en`,
             options
           )
-            .then((response) => response.json())
             .then((response) => {
-              console.log(response);
+              response.json();
+              if (
+                response.status === 429 &&
+                resultsContainer.children.length < 1
+              ) {
+                const result = document.createElement('div');
+                result.classList.add('result');
+                result.textContent = `There was an error while searching: too many requests.`;
+                resultsContainer.append(result);
+                return;
+              }
+            })
+            .then((response) => {
+              // console.log(response);
 
               // Append results
               if (response.streamingInfo.length > 0) {
@@ -53,19 +65,13 @@ searchBtn.addEventListener('click', (e) => {
                 resultsContainer.append(result);
               }
             })
-            .catch((err) => {
-              console.error(err);
-              const result = document.createElement('div');
-              result.classList.add('result');
-              result.textContent = `Hubo un problema al buscar.`;
-              resultsContainer.append(result);
-            });
+            .catch((err) => console.error(err));
         });
       });
   } else {
     // Error on input
     const result = document.createElement('div');
-    result.textContent = 'Error al intentar buscar.';
+    result.textContent = "There's an error on your input.";
     resultsContainer.append(result);
   }
 });
