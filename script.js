@@ -41,10 +41,26 @@ searchBtn.addEventListener('click', (e) => {
               .then((response) => response.json())
               .then((response) => {
                 // Append results
-                const result = document.createElement('div');
-                result.classList.add('result');
-                result.innerHTML = `<span class='search'>${title.name}</span> is on ${response.results.AR.flatrate[0].provider_name}.`;
-                resultsContainer.append(result);
+                switch (response.results.AR.flatrate.length) {
+                  case 1:
+                    const result = document.createElement('div');
+                    result.classList.add('result');
+                    result.innerHTML = `<span class='search'>${title.name}</span> is on ${response.results.AR.flatrate[0].provider_name}.`;
+                    resultsContainer.append(result);
+                    break;
+                  case 2:
+                    const result2 = document.createElement('div');
+                    result2.classList.add('result');
+                    result2.innerHTML = `<span class='search'>${title.name}</span> is on ${response.results.AR.flatrate[0].provider_name} and ${response.results.AR.flatrate[1].provider_name}.`;
+                    resultsContainer.append(result2);
+                    break;
+                  case 3:
+                    const result3 = document.createElement('div');
+                    result3.classList.add('result');
+                    result3.innerHTML = `<span class='search'>${title.name}</span> is on ${response.results.AR.flatrate[0].provider_name} and ${response.results.AR.flatrate[1].provider_name} and ${response.results.AR.flatrate[2].provider_name}.`;
+                    resultsContainer.append(result3);
+                    break;
+                }
               })
               .catch((err) => console.error(err));
           });
@@ -74,10 +90,17 @@ searchBtn.addEventListener('click', (e) => {
           });
         });
     }
+
+    if (!movieCheckbox.checked && !tvCheckbox.checked) {
+      const result = document.createElement('div');
+      result.textContent = 'Please select what are you looking for.';
+      result.classList.add('result');
+      resultsContainer.append(result);
+    }
   } else {
     // Error on input
     const result = document.createElement('div');
-    result.textContent = "There's an error on your input.";
+    result.textContent = 'Please enter a movie or TV series to look up.';
     result.classList.add('result');
     resultsContainer.append(result);
   }
