@@ -22,6 +22,7 @@ searchBtn.addEventListener('click', (e) => {
   for (let item of resultsDivs) {
     clearBtn.click();
     item.remove();
+    clearBtn.click();
   }
 
   // Searching movie/series
@@ -95,5 +96,6 @@ clearBtn.addEventListener('click', (e) => {
   for (let item of resultsDivs) {
     clearBtn.click();
     item.remove();
+    clearBtn.click();
   }
 });
