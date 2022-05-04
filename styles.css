@@ -33,6 +33,10 @@ form {
   margin-right: 1rem;
   margin-top: -0.4rem;
 }
+.checkbox-container label {
+  display: flex;
+  align-items: center;
+}
 
 .input {
   outline: none;
