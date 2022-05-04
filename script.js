@@ -1,6 +1,5 @@
 const input = document.querySelector('[data-input]');
 const searchBtn = document.querySelector('[data-search]');
-const clearBtn = document.querySelector('[data-clear]');
 const resultsContainer = document.getElementById('results');
 
 const movieCheckbox = document.querySelector('[data-movie-checkbox]');
@@ -18,12 +17,7 @@ searchBtn.addEventListener('click', (e) => {
   e.preventDefault();
 
   // Clean previous results
-  let resultsDivs = resultsContainer.children;
-  for (let item of resultsDivs) {
-    clearBtn.click();
-    item.remove();
-    clearBtn.click();
-  }
+  clearResults();
 
   // Searching movie/series
   if (input.value.length > 0) {
@@ -89,13 +83,11 @@ searchBtn.addEventListener('click', (e) => {
   }
 });
 
-clearBtn.addEventListener('click', (e) => {
-  e.preventDefault();
-
+const clearResults = () => {
   let resultsDivs = resultsContainer.children;
-  for (let item of resultsDivs) {
-    clearBtn.click();
-    item.remove();
-    clearBtn.click();
+  for (let i = 0; i < 5; i++) {
+    for (let item of resultsDivs) {
+      item.remove();
+    }
   }
-});
+};
