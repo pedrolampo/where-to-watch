@@ -11,9 +11,29 @@
   <body>
     <h1 class="title">What do you want to watch?</h1>
     <form data-form>
-      <input data-input class="input" type="text" placeholder="Interstellar" />
-      <button data-search class="search-btn">Search</button>
+      <div class="checkbox-container">
+        <label
+          ><input
+            type="checkbox"
+            value="movie"
+            data-movie-checkbox
+          />Movie</label
+        >
+        <label
+          ><input type="checkbox" value="tv" data-tv-checkbox />TV Series</label
+        >
+      </div>
+      <div class="second-container">
+        <input
+          data-input
+          class="input"
+          type="text"
+          placeholder="Interstellar"
+        />
+        <button data-search class="search-btn">Search</button>
+      </div>
     </form>
-    <div data-results class="results-container"><div></div></div>
+    <div id="results" class="results-container"><div></div></div>
+    <button data-clear class="search-btn clear">Clear Results</button>
   </body>
 </html>
