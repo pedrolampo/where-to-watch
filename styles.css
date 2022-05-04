@@ -59,7 +59,7 @@ form {
   background-color: grey;
   outline: none;
   border-radius: 0.5rem;
-  width: 4.5rem;
+  width: 6.5rem;
   font-size: 1rem;
   color: black;
 }
@@ -95,5 +95,9 @@ form {
   }
   .checkbox-container label {
     padding: 0.5rem;
+  }
+
+  .search-btn {
+    margin-top: 1rem;
   }
 }
