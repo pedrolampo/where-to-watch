@@ -31,11 +31,16 @@ form {
   display: flex;
   flex-direction: column;
   margin-right: 1rem;
-  margin-top: -0.4rem;
+  margin-top: -0.5rem;
 }
 .checkbox-container label {
   display: flex;
   align-items: center;
+  cursor: pointer;
+  margin: 0.1rem;
+}
+.checkbox-container input {
+  accent-color: rgb(88, 88, 255);
 }
 
 .input {
@@ -58,15 +63,12 @@ form {
   height: 2.5rem;
   background-color: grey;
   outline: none;
+  border-color: rgb(43, 41, 51);
   border-radius: 0.5rem;
   width: 6.5rem;
   font-size: 1rem;
   color: black;
-}
-.search-btn.clear {
-  width: 17rem;
-  height: 3rem;
-  margin-top: 2rem;
+  cursor: pointer;
 }
 
 .result {
@@ -79,7 +81,24 @@ form {
   color: rgb(88, 88, 255);
 }
 
-@media screen and (max-width: 600px) {
+footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 1rem;
+  font-size: 1.15rem;
+}
+
+footer a {
+  color: inherit;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: rgb(88, 88, 255);
+}
+
+@media screen and (max-width: 720px) {
   * {
     text-align: center;
   }
@@ -99,5 +118,9 @@ form {
 
   .search-btn {
     margin-top: 1rem;
+  }
+
+  footer {
+    left: 0;
   }
 }
