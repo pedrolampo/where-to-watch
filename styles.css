@@ -10,7 +10,8 @@ body {
   background-color: rgb(43, 41, 51);
   margin: 0;
   padding: 0;
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -74,15 +75,39 @@ form {
 .result {
   font-size: 1.5rem;
   text-align: center;
-  padding: 0.5rem;
+  padding: 1.25rem;
 }
 
 .result .search {
-  color: rgb(88, 88, 255);
+  color: rgb(255, 153, 247);
+}
+.result .netflix {
+  color: rgb(253, 16, 16);
+}
+.result .hbo {
+  color: rgb(133, 45, 233);
+}
+.result .disney {
+  color: rgb(34, 78, 255);
+}
+.result .star {
+  color: rgb(254, 94, 16);
+}
+.result .amazon {
+  color: rgb(17, 174, 227);
+}
+.result .paramount {
+  color: rgb(2, 100, 248);
+}
+.result .movistar {
+  color: rgb(77, 185, 60);
+}
+.result .apple {
+  color: rgb(200, 240, 252);
 }
 
 footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   right: 0;
   padding: 1rem;
@@ -116,11 +141,17 @@ footer a:hover {
     padding: 0.5rem;
   }
 
+  .results-container {
+    background-color: rgb(43, 41, 51);
+    z-index: 1;
+  }
+
   .search-btn {
     margin-top: 1rem;
   }
 
   footer {
     left: 0;
+    padding: 0.5rem;
   }
 }

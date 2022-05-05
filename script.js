@@ -45,19 +45,49 @@ searchBtn.addEventListener('click', (e) => {
                   case 1:
                     const result = document.createElement('div');
                     result.classList.add('result');
-                    result.innerHTML = `<span class='search'>${title.name}</span> is on ${response.results.AR.flatrate[0].provider_name}.`;
+                    result.innerHTML = `<span class='search'>${
+                      title.name
+                    }</span> is on <span class="${providerColor(
+                      response.results.AR.flatrate[0].provider_name
+                    )}">${
+                      response.results.AR.flatrate[0].provider_name
+                    }</span>.`;
                     resultsContainer.append(result);
                     break;
                   case 2:
                     const result2 = document.createElement('div');
                     result2.classList.add('result');
-                    result2.innerHTML = `<span class='search'>${title.name}</span> is on ${response.results.AR.flatrate[0].provider_name} and ${response.results.AR.flatrate[1].provider_name}.`;
+                    result2.innerHTML = `<span class='search'>${
+                      title.name
+                    }</span> is on <span class="${providerColor(
+                      response.results.AR.flatrate[0].provider_name
+                    )}">${
+                      response.results.AR.flatrate[0].provider_name
+                    }</span> and <span class="${providerColor(
+                      response.results.AR.flatrate[1].provider_name
+                    )}">${
+                      response.results.AR.flatrate[1].provider_name
+                    }</span>.`;
                     resultsContainer.append(result2);
                     break;
                   case 3:
                     const result3 = document.createElement('div');
                     result3.classList.add('result');
-                    result3.innerHTML = `<span class='search'>${title.name}</span> is on ${response.results.AR.flatrate[0].provider_name}, ${response.results.AR.flatrate[1].provider_name} and ${response.results.AR.flatrate[2].provider_name}.`;
+                    result3.innerHTML = `<span class='search'>${
+                      title.name
+                    }</span> is on <span class="${providerColor(
+                      response.results.AR.flatrate[0].provider_name
+                    )}">${
+                      response.results.AR.flatrate[0].provider_name
+                    }</span>, <span class="${providerColor(
+                      response.results.AR.flatrate[1].provider_name
+                    )}">${
+                      response.results.AR.flatrate[1].provider_name
+                    }</span> and <span class="${providerColor(
+                      response.results.AR.flatrate[2].provider_name
+                    )}">${
+                      response.results.AR.flatrate[2].provider_name
+                    }</span>.`;
                     resultsContainer.append(result3);
                     break;
                 }
@@ -85,19 +115,49 @@ searchBtn.addEventListener('click', (e) => {
                   case 1:
                     const result = document.createElement('div');
                     result.classList.add('result');
-                    result.innerHTML = `<span class='search'>${title.name}</span> is on ${response.results.AR.flatrate[0].provider_name}.`;
+                    result.innerHTML = `<span class='search'>${
+                      title.name
+                    }</span> is on <span class="${providerColor(
+                      response.results.AR.flatrate[0].provider_name
+                    )}">${
+                      response.results.AR.flatrate[0].provider_name
+                    }</span>.`;
                     resultsContainer.append(result);
                     break;
                   case 2:
                     const result2 = document.createElement('div');
                     result2.classList.add('result');
-                    result2.innerHTML = `<span class='search'>${title.name}</span> is on ${response.results.AR.flatrate[0].provider_name} and ${response.results.AR.flatrate[1].provider_name}.`;
+                    result2.innerHTML = `<span class='search'>${
+                      title.name
+                    }</span> is on <span class="${providerColor(
+                      response.results.AR.flatrate[0].provider_name
+                    )}">${
+                      response.results.AR.flatrate[0].provider_name
+                    }</span> and <span class="${providerColor(
+                      response.results.AR.flatrate[1].provider_name
+                    )}">${
+                      response.results.AR.flatrate[1].provider_name
+                    }</span>.`;
                     resultsContainer.append(result2);
                     break;
                   case 3:
                     const result3 = document.createElement('div');
                     result3.classList.add('result');
-                    result3.innerHTML = `<span class='search'>${title.name}</span> is on ${response.results.AR.flatrate[0].provider_name}, ${response.results.AR.flatrate[1].provider_name} and ${response.results.AR.flatrate[2].provider_name}.`;
+                    result3.innerHTML = `<span class='search'>${
+                      title.name
+                    }</span> is on </span> is on <span class="${providerColor(
+                      response.results.AR.flatrate[0].provider_name
+                    )}">${
+                      response.results.AR.flatrate[0].provider_name
+                    }</span>, </span> is on <span class="${providerColor(
+                      response.results.AR.flatrate[1].provider_name
+                    )}">${
+                      response.results.AR.flatrate[1].provider_name
+                    }</span> and <span class="${providerColor(
+                      response.results.AR.flatrate[2].provider_name
+                    )}">${
+                      response.results.AR.flatrate[2].provider_name
+                    }</span>.`;
                     resultsContainer.append(result3);
                     break;
                 }
@@ -130,5 +190,37 @@ const clearResults = () => {
     for (let item of resultsDivs) {
       item.remove();
     }
+  }
+};
+
+// Streaming provider class color
+const providerColor = (provider) => {
+  switch (provider) {
+    case 'Netflix':
+      return 'netflix';
+
+    case 'HBO Max':
+      return 'hbo';
+
+    case 'HBO Go':
+      return 'hbo';
+
+    case 'Disney Plus':
+      return 'disney';
+
+    case 'Star Plus':
+      return 'star';
+
+    case 'Amazon Prime Video':
+      return 'amazon';
+
+    case 'Paramount Plus':
+      return 'paramount';
+
+    case 'Movistar Play':
+      return 'movistar';
+
+    case 'Apple TV Plus':
+      return 'apple';
   }
 };
