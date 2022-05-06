@@ -19,19 +19,30 @@ searchBtn.addEventListener('click', (e) => {
   // Clean previous results
   clearResults();
 
-  // Searching movie/series
+  // Search the movie/tv-series
   if (input.value.length > 0) {
     search = input.value.replace(/ /g, '%20');
 
-    // Get TMDB ID
+    // Get the requested movie/tv-series ID
     let url = `https://api.watchmode.com/v1/search/?apiKey=${API_KEY}&search_field=name&search_value=${search}`;
     let results = [];
 
+    // Search for Movies
     if (movieCheckbox.checked) {
       fetch(url, { method: 'Get' })
         .then((res) => res.json())
         .then((json) => {
           results = json.title_results;
+
+          // If nothing is found return this
+          if (!results.length) {
+            const result = document.createElement('div');
+            result.innerHTML = `We couldn't find <span class="search">${search}</span>.`;
+            result.classList.add('result');
+            resultsContainer.append(result);
+            return;
+          }
+
           results.forEach((title) => {
             // Get where to watch
             fetch(
@@ -40,54 +51,52 @@ searchBtn.addEventListener('click', (e) => {
             )
               .then((response) => response.json())
               .then((response) => {
+                let movie = response.results.AR.flatrate;
+
                 // Append results based on how many there are
-                switch (response.results.AR.flatrate.length) {
+                switch (movie.length) {
                   case 1:
                     const result = document.createElement('div');
                     result.classList.add('result');
                     result.innerHTML = `<span class='search'>${
                       title.name
                     }</span> is on <span class="${providerColor(
-                      response.results.AR.flatrate[0].provider_name
-                    )}">${
-                      response.results.AR.flatrate[0].provider_name
-                    }</span>.`;
+                      movie[0].provider_name
+                    )}">${movie[0].provider_name}</span>.`;
                     resultsContainer.append(result);
                     break;
+
                   case 2:
                     const result2 = document.createElement('div');
                     result2.classList.add('result');
                     result2.innerHTML = `<span class='search'>${
                       title.name
                     }</span> is on <span class="${providerColor(
-                      response.results.AR.flatrate[0].provider_name
+                      movie[0].provider_name
                     )}">${
-                      response.results.AR.flatrate[0].provider_name
+                      movie[0].provider_name
                     }</span> and <span class="${providerColor(
-                      response.results.AR.flatrate[1].provider_name
-                    )}">${
-                      response.results.AR.flatrate[1].provider_name
-                    }</span>.`;
+                      movie[1].provider_name
+                    )}">${movie[1].provider_name}</span>.`;
                     resultsContainer.append(result2);
                     break;
+
                   case 3:
                     const result3 = document.createElement('div');
                     result3.classList.add('result');
                     result3.innerHTML = `<span class='search'>${
                       title.name
                     }</span> is on <span class="${providerColor(
-                      response.results.AR.flatrate[0].provider_name
+                      movie[0].provider_name
                     )}">${
-                      response.results.AR.flatrate[0].provider_name
+                      movie[0].provider_name
                     }</span>, <span class="${providerColor(
-                      response.results.AR.flatrate[1].provider_name
+                      movie[1].provider_name
                     )}">${
-                      response.results.AR.flatrate[1].provider_name
+                      movie[1].provider_name
                     }</span> and <span class="${providerColor(
-                      response.results.AR.flatrate[2].provider_name
-                    )}">${
-                      response.results.AR.flatrate[2].provider_name
-                    }</span>.`;
+                      movie[2].provider_name
+                    )}">${movie[2].provider_name}</span>.`;
                     resultsContainer.append(result3);
                     break;
                 }
@@ -97,11 +106,22 @@ searchBtn.addEventListener('click', (e) => {
         });
     }
 
+    // Search for TV Series
     if (tvCheckbox.checked) {
       fetch(url, { method: 'Get' })
         .then((res) => res.json())
         .then((json) => {
           results = json.title_results;
+
+          // If nothing is found return this
+          if (!results.length) {
+            const result = document.createElement('div');
+            result.innerHTML = `We couldn't find <span class="search">${search}</span>.`;
+            result.classList.add('result');
+            resultsContainer.append(result);
+            return;
+          }
+
           results.forEach((title) => {
             // Get where to watch
             fetch(
@@ -110,54 +130,52 @@ searchBtn.addEventListener('click', (e) => {
             )
               .then((response) => response.json())
               .then((response) => {
+                let tvSeries = response.results.AR.flatrate;
+
                 // Append results based on how many there are
-                switch (response.results.AR.flatrate.length) {
+                switch (tvSeries.length) {
                   case 1:
                     const result = document.createElement('div');
                     result.classList.add('result');
                     result.innerHTML = `<span class='search'>${
                       title.name
                     }</span> is on <span class="${providerColor(
-                      response.results.AR.flatrate[0].provider_name
-                    )}">${
-                      response.results.AR.flatrate[0].provider_name
-                    }</span>.`;
+                      tvSeries[0].provider_name
+                    )}">${tvSeries[0].provider_name}</span>.`;
                     resultsContainer.append(result);
                     break;
+
                   case 2:
                     const result2 = document.createElement('div');
                     result2.classList.add('result');
                     result2.innerHTML = `<span class='search'>${
                       title.name
                     }</span> is on <span class="${providerColor(
-                      response.results.AR.flatrate[0].provider_name
+                      tvSeries[0].provider_name
                     )}">${
-                      response.results.AR.flatrate[0].provider_name
+                      tvSeries[0].provider_name
                     }</span> and <span class="${providerColor(
-                      response.results.AR.flatrate[1].provider_name
-                    )}">${
-                      response.results.AR.flatrate[1].provider_name
-                    }</span>.`;
+                      tvSeries[1].provider_name
+                    )}">${tvSeries[1].provider_name}</span>.`;
                     resultsContainer.append(result2);
                     break;
+
                   case 3:
                     const result3 = document.createElement('div');
                     result3.classList.add('result');
                     result3.innerHTML = `<span class='search'>${
                       title.name
                     }</span> is on </span> is on <span class="${providerColor(
-                      response.results.AR.flatrate[0].provider_name
+                      tvSeries[0].provider_name
                     )}">${
-                      response.results.AR.flatrate[0].provider_name
+                      tvSeries[0].provider_name
                     }</span>, </span> is on <span class="${providerColor(
-                      response.results.AR.flatrate[1].provider_name
+                      tvSeries[1].provider_name
                     )}">${
-                      response.results.AR.flatrate[1].provider_name
+                      tvSeries[1].provider_name
                     }</span> and <span class="${providerColor(
-                      response.results.AR.flatrate[2].provider_name
-                    )}">${
-                      response.results.AR.flatrate[2].provider_name
-                    }</span>.`;
+                      tvSeries[2].provider_name
+                    )}">${tvSeries[2].provider_name}</span>.`;
                     resultsContainer.append(result3);
                     break;
                 }
