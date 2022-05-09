@@ -9,31 +9,78 @@
     <script src="script.js" defer></script>
   </head>
   <body>
-    <h1 class="title">What do you want to watch?</h1>
-    <form class="form" data-form>
-      <div class="checkbox-container">
-        <label
-          ><input
-            type="checkbox"
-            value="movie"
-            data-movie-checkbox
-          />Movie</label
-        >
-        <label
-          ><input type="checkbox" value="tv" data-tv-checkbox />TV Series</label
-        >
-      </div>
-      <div class="second-container">
-        <input
-          data-input
-          class="input"
-          type="text"
-          placeholder="Interstellar"
+    <div class="burger-menu">
+      <svg
+        fill="#000000"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        width="48px"
+        height="48px"
+      >
+        <path
+          d="M 2 5 L 2 7 L 22 7 L 22 5 L 2 5 z M 2 11 L 2 13 L 22 13 L 22 11 L 2 11 z M 2 17 L 2 19 L 22 19 L 22 17 L 2 17 z"
         />
-        <button data-search class="search-btn">Search</button>
+      </svg>
+    </div>
+    <div class="overlay hidden"></div>
+    <div class="menu collapsed">
+      <h2>Select your country</h2>
+      <div>
+        <input type="radio" id="ar" name="drone" value="AR" checked />
+        <label for="ar">Argentina</label>
       </div>
-    </form>
-    <div id="results" class="results-container"><div></div></div>
+      <div>
+        <input type="radio" id="usa" name="drone" value="US" />
+        <label for="usa">USA</label>
+      </div>
+      <div>
+        <input type="radio" id="esp" name="drone" value="ES" />
+        <label for="esp">España</label>
+      </div>
+      <div>
+        <input type="radio" id="mex" name="drone" value="MX" />
+        <label for="mex">México</label>
+      </div>
+      <div class="close-menu">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 556.424 556.424">
+          <path
+            d="M508.094,13.5C511.82,6.043,508.087,0,499.749,0c0,0-205.77,0-205.773,0c-19.045,0.006-44.079,38.363-56.512,52.262
+            C215.594,76.711,50.874,259.809,49.681,262.196c-3.727,7.458-3.727,19.544,0,27.001l222.456,253.726
+            c3.727,7.458,13.507,13.501,21.843,13.501h205.77c8.335,0,12.071-6.043,8.345-13.501L285.638,289.197
+            c-3.728-7.457-3.728-19.544,0-27.001L508.094,13.5z"
+          />
+        </svg>
+      </div>
+    </div>
+
+    <section class="main">
+      <h1 class="title">What do you want to watch?</h1>
+      <form class="form" data-form>
+        <div class="checkbox-container">
+          <label
+            ><input
+              type="checkbox"
+              value="movie"
+              data-movie-checkbox
+            />Movie</label
+          >
+          <label
+            ><input type="checkbox" value="tv" data-tv-checkbox />TV
+            Series</label
+          >
+        </div>
+        <div class="second-container">
+          <input
+            data-input
+            class="input"
+            type="text"
+            placeholder="Interstellar"
+          />
+          <button data-search class="search-btn">Search</button>
+        </div>
+      </form>
+      <div id="results" class="results-container"><div></div></div>
+    </section>
     <footer>
       <div>
         Made by

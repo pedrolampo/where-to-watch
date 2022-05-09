@@ -2,8 +2,14 @@ const input = document.querySelector('[data-input]');
 const searchBtn = document.querySelector('[data-search]');
 const resultsContainer = document.getElementById('results');
 
+const countries = document.querySelectorAll('input[type="radio"]');
 const movieCheckbox = document.querySelector('[data-movie-checkbox]');
 const tvCheckbox = document.querySelector('[data-tv-checkbox]');
+
+const menu = document.querySelector('.menu');
+const overlay = document.querySelector('.overlay');
+const burgerMenuBtn = document.querySelector('.burger-menu');
+const closeBurgerMenuBtn = document.querySelector('.close-menu');
 
 const API_KEY = '469vh9ZIpXnNbLdTR0yzFVwKCzFIHExEutPqM5yT';
 
@@ -12,6 +18,8 @@ const options = {
 };
 
 let search = '';
+
+let country = localStorage.getItem('whereWatchCountry');
 
 searchBtn.addEventListener('click', (e) => {
   e.preventDefault();
@@ -51,7 +59,7 @@ searchBtn.addEventListener('click', (e) => {
             )
               .then((response) => response.json())
               .then((response) => {
-                let movie = response.results.AR.flatrate;
+                let movie = response.results[country].flatrate;
 
                 // Append results based on how many there are
                 switch (movie.length) {
@@ -130,7 +138,7 @@ searchBtn.addEventListener('click', (e) => {
             )
               .then((response) => response.json())
               .then((response) => {
-                let tvSeries = response.results.AR.flatrate;
+                let tvSeries = response.results[country].flatrate;
 
                 // Append results based on how many there are
                 switch (tvSeries.length) {
@@ -201,6 +209,42 @@ searchBtn.addEventListener('click', (e) => {
   }
 });
 
+// Menu
+overlay.addEventListener('click', () => {
+  menu.classList.add('collapsed');
+  overlay.classList.add('hidden');
+});
+
+burgerMenuBtn.addEventListener('click', () => {
+  menu.classList.remove('collapsed');
+  overlay.classList.remove('hidden');
+});
+
+closeBurgerMenuBtn.addEventListener('click', () => {
+  menu.classList.add('collapsed');
+  overlay.classList.add('hidden');
+});
+
+// Set country
+if (localStorage.getItem('whereWatchCountry')) {
+  countries.forEach((e) => {
+    if (e.value === localStorage.getItem('whereWatchCountry')) {
+      e.setAttribute('checked', 'checked');
+    }
+  });
+} else {
+  countries.forEach((e) => {
+    if (e.checked) localStorage.setItem('whereWatchCountry', `${e.value}`);
+  });
+}
+
+countries.forEach((e) => {
+  e.addEventListener('click', () => {
+    localStorage.setItem('whereWatchCountry', e.value);
+    country = localStorage.getItem('whereWatchCountry');
+  });
+});
+
 // Clear previous results
 const clearResults = () => {
   let resultsDivs = resultsContainer.children;
@@ -235,6 +279,7 @@ const providerColor = (provider) => {
     case 'Paramount Plus':
       return 'paramount';
 
+    case 'Movistar Plus':
     case 'Movistar Play':
       return 'movistar';
 
