@@ -208,6 +208,80 @@ footer a:hover {
   color: rgb(88, 88, 255);
 }
 
+/* RECOMMENDATIONS */
+section.recom {
+  width: 100%;
+}
+
+h1.title.recom {
+  margin: 0;
+}
+
+form.recom {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.categories-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 2rem;
+  font-size: 1.1rem;
+}
+
+.categories-container div {
+  padding: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.categories-container label,
+.categories-container input {
+  cursor: pointer;
+}
+
+h3 a.go-back {
+  color: white;
+  text-decoration: none;
+  margin: 0;
+}
+
+h3 a.go-back:hover {
+  color: rgb(88, 88, 255);
+  text-decoration: none;
+  margin: 0;
+}
+
+#recomResults {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#recomResults.results-container .result {
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+  align-items: center;
+  text-align: justify;
+}
+
+#recomResults.results-container .result img {
+  width: 25%;
+}
+
+#recomResults.results-container .result h4 {
+  text-align: center;
+  font-size: 2rem;
+}
+
+#recomResults.results-container .result div {
+  padding: 10rem;
+}
+
 @media screen and (max-width: 720px) {
   * {
     text-align: center;

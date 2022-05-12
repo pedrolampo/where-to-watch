@@ -13,9 +13,7 @@ const closeBurgerMenuBtn = document.querySelector('.close-menu');
 
 const API_KEY = '469vh9ZIpXnNbLdTR0yzFVwKCzFIHExEutPqM5yT';
 
-const options = {
-  method: 'GET',
-};
+const options = { method: 'GET' };
 
 let search = '';
 

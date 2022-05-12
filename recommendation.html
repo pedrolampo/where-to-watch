@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Where to watch it - Pedrolampo</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="recommendations.js" defer></script>
+  </head>
+  <body>
+    <section class="main recom">
+      <h1 class="title recom">Looking for recommendations?</h1>
+      <h3>
+        <a href="index.html" class="go-back">Back to "Where to watch it".</a>
+      </h3>
+      <form class="form recom" data-recom-form>
+        <div class="categories-container">
+          <div>
+            <input type="checkbox" id="action" name="action" value="28" />
+            <label for="action">Acción</label>
+          </div>
+          <div>
+            <input type="checkbox" id="adventure" name="adventure" value="12" />
+            <label for="adventure">Aventura</label>
+          </div>
+          <div>
+            <input type="checkbox" id="animation" name="animation" value="16" />
+            <label for="animation">Animación</label>
+          </div>
+          <div>
+            <input type="checkbox" id="comedy" name="comedy" value="35" />
+            <label for="comedy">Comedia</label>
+          </div>
+          <div>
+            <input type="checkbox" id="crime" name="crime" value="80" />
+            <label for="crime">Crimen</label>
+          </div>
+          <div>
+            <input
+              type="checkbox"
+              id="documentary"
+              name="documentary"
+              value="99"
+            />
+            <label for="documentary">Documental</label>
+          </div>
+          <div>
+            <input type="checkbox" id="drama" name="drama" value="18" />
+            <label for="drama">Drama</label>
+          </div>
+          <div>
+            <input type="checkbox" id="fantasy" name="fantasy" value="14" />
+            <label for="fantasy">Fantasía</label>
+          </div>
+          <div>
+            <input type="checkbox" id="horror" name="horror" value="27" />
+            <label for="horror">Horror</label>
+          </div>
+          <div>
+            <input type="checkbox" id="mistery" name="mistery" value="9648" />
+            <label for="mistery">Misterio</label>
+          </div>
+          <div>
+            <input type="checkbox" id="romance" name="romance" value="10749" />
+            <label for="romance">Romance</label>
+          </div>
+          <div>
+            <input type="checkbox" id="scifi" name="scifi" value="878" />
+            <label for="scifi">Ciencia Ficción</label>
+          </div>
+          <div>
+            <input type="checkbox" id="thriller" name="thriller" value="53" />
+            <label for="thriller">Thriller</label>
+          </div>
+          <div>
+            <input type="checkbox" id="war" name="war" value="10752" />
+            <label for="war">Guerra</label>
+          </div>
+          <div>
+            <input type="checkbox" id="western" name="western" value="37" />
+            <label for="western">Western</label>
+          </div>
+        </div>
+        <button data-recom-search class="search-btn">Search</button>
+      </form>
+      <div id="recomResults" class="results-container"><div></div></div>
+    </section>
+    <footer>
+      <div>
+        Made by
+        <a href="https://github.com/pedrolampo" target="_blank">pedrolampo</a>.
+      </div>
+    </footer>
+  </body>
+</html>
