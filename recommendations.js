@@ -48,7 +48,7 @@ searchRecomBtn.addEventListener('click', (e) => {
 });
 
 function appendResults(results) {
-  results.slice(0, 5).forEach((result) => {
+  results.forEach((result) => {
     const resultEl = document.createElement('div');
     resultEl.classList.add('result');
     resultEl.innerHTML = `
