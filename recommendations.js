@@ -30,10 +30,7 @@ searchRecomBtn.addEventListener('click', (e) => {
 
   if (specific) {
     if (CAT_IDS.length === 1) {
-      fetch(
-        `https://api.themoviedb.org/3/discover/movie?api_key=110bb98a209c2c9716c472819fe63e72&region=ar&sort_by=popularity.desc&include_adult=true&include_video=false&page=1&with_genres=${CAT_IDS[0]}&with_watch_monetization_types=flatrate`,
-        options
-      )
+      fetch(returnURLWithGenres(CAT_IDS[0]), options)
         .then((res) => res.json())
         .then((res) => appendResults(res.results));
     } else {
@@ -43,10 +40,7 @@ searchRecomBtn.addEventListener('click', (e) => {
         categoriesSelected += `%2C${e}`;
       });
 
-      fetch(
-        `https://api.themoviedb.org/3/discover/movie?api_key=110bb98a209c2c9716c472819fe63e72&region=ar&sort_by=popularity.desc&include_adult=true&include_video=false&page=1&with_genres=${categoriesSelected}&with_watch_monetization_types=flatrate`,
-        options
-      )
+      fetch(returnURLWithGenres(categoriesSelected), options)
         .then((res) => res.json())
         .then((res) => appendResults(res.results));
     }
@@ -67,6 +61,10 @@ function appendResults(results) {
     resultsRecomContainer.append(resultEl);
   });
 }
+
+const returnURLWithGenres = (genreID) => {
+  return `https://api.themoviedb.org/3/discover/movie?api_key=110bb98a209c2c9716c472819fe63e72&region=ar&sort_by=popularity.desc&include_adult=true&include_video=false&page=1&with_genres=${genreID}&with_watch_monetization_types=flatrate`;
+};
 
 const clearResults = () => {
   let resultsDivs = resultsRecomContainer.children;
