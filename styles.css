@@ -106,6 +106,13 @@ section.main {
 .title {
   font-size: 2.5rem;
   padding: 1rem;
+  margin-bottom: 0;
+}
+
+.main #recom-link {
+  display: block;
+  padding: 1rem;
+  padding-top: 0;
 }
 
 form {
@@ -214,7 +221,7 @@ section.recom {
 }
 
 h1.title.recom {
-  margin: 0;
+  margin-bottom: 0;
 }
 
 form.recom {
