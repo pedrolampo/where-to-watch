@@ -216,11 +216,13 @@ overlay.addEventListener('click', () => {
 burgerMenuBtn.addEventListener('click', () => {
   menu.classList.remove('collapsed');
   overlay.classList.remove('hidden');
+  document.body.classList.add('stop-scroll');
 });
 
 closeBurgerMenuBtn.addEventListener('click', () => {
   menu.classList.add('collapsed');
   overlay.classList.add('hidden');
+  document.body.classList.remove('stop-scroll');
 });
 
 // Set country

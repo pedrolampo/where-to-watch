@@ -17,6 +17,9 @@ body {
   justify-content: center;
   align-items: center;
 }
+body.stop-scroll {
+  overflow: hidden;
+}
 
 .burger-menu {
   display: flex;
@@ -292,6 +295,8 @@ h3 a.go-back:hover {
 @media screen and (max-width: 720px) {
   * {
     text-align: center;
+    overflow-x: hidden;
+    max-width: 100vw;
   }
 
   .burger-menu {
@@ -303,7 +308,9 @@ h3 a.go-back:hover {
   .menu {
     border: none;
     border-left: 1px solid grey;
+    position: absolute;
     left: auto;
+    top: 0;
     right: 0;
     width: 24rem;
   }
