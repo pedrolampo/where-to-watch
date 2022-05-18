@@ -43,7 +43,7 @@ searchBtn.addEventListener('click', (e) => {
           // If nothing is found return this
           if (!results.length) {
             const result = document.createElement('div');
-            result.innerHTML = `We couldn't find <span class="search">${search}</span>.`;
+            result.innerHTML = `We couldn't find <span class="search">${input.value}</span>.`;
             result.classList.add('result');
             resultsContainer.append(result);
             return;
@@ -122,7 +122,7 @@ searchBtn.addEventListener('click', (e) => {
           // If nothing is found return this
           if (!results.length) {
             const result = document.createElement('div');
-            result.innerHTML = `We couldn't find <span class="search">${search}</span>.`;
+            result.innerHTML = `We couldn't find <span class="search">${input.value}</span>.`;
             result.classList.add('result');
             resultsContainer.append(result);
             return;
