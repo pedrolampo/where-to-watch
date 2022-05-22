@@ -12,6 +12,7 @@ const burgerMenuBtn = document.querySelector('.burger-menu');
 const closeBurgerMenuBtn = document.querySelector('.close-menu');
 
 const API_KEY = '469vh9ZIpXnNbLdTR0yzFVwKCzFIHExEutPqM5yT';
+const API_KEY2 = '9OybJMTkuPIOJrvhl5qnQAPXM0W588LVWNSKeG40';
 
 const options = { method: 'GET' };
 
@@ -30,7 +31,7 @@ searchBtn.addEventListener('click', (e) => {
     search = input.value.replace(/ /g, '%20');
 
     // Get the requested movie/tv-series ID
-    let url = `https://api.watchmode.com/v1/search/?apiKey=${API_KEY}&search_field=name&search_value=${search}`;
+    let url = `https://api.watchmode.com/v1/search/?apiKey=${API_KEY2}&search_field=name&search_value=${search}`;
     let results = [];
 
     // Search for Movies
