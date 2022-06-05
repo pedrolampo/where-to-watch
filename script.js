@@ -2,6 +2,8 @@ const input = document.querySelector('[data-input]');
 const searchBtn = document.querySelector('[data-search]');
 const resultsContainer = document.getElementById('results');
 
+const label = document.querySelectorAll('label');
+
 const countries = document.querySelectorAll('input[type="radio"]');
 const movieCheckbox = document.querySelector('[data-movie-checkbox]');
 const tvCheckbox = document.querySelector('[data-tv-checkbox]');
@@ -19,6 +21,17 @@ const options = { method: 'GET' };
 let search = '';
 
 let country = localStorage.getItem('whereWatchCountry');
+
+// Animation on the checkboxes
+label.forEach((el) => {
+  el.addEventListener('click', () => {
+    el.querySelector('input').classList.remove('checked-animation');
+    el.style.animation = 'none';
+    el.offsetHeight; /* trigger reflow */
+    el.style.animation = null;
+    el.querySelector('input').classList.add('checked-animation');
+  });
+});
 
 searchBtn.addEventListener('click', (e) => {
   e.preventDefault();
