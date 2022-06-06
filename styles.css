@@ -16,6 +16,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow-x: hidden;
 }
 body.stop-scroll {
   overflow: hidden;
@@ -47,6 +48,7 @@ body.stop-scroll {
   font-size: 1.1rem;
   position: absolute;
   left: 0;
+  top: 0;
   z-index: 6;
   transition: transform 200ms ease-in-out;
 }
@@ -370,6 +372,7 @@ h3 a.go-back:hover {
   body {
     max-width: 100%;
     overflow-x: hidden;
+    max-height: 100%;
   }
 
   .burger-menu {
@@ -386,11 +389,15 @@ h3 a.go-back:hover {
     top: 0;
     right: 0;
     width: 24rem;
+    transform: translate(0);
+    opacity: 1;
+    transition: 200ms ease-in-out;
   }
   .menu.collapsed {
-    transform: translateX(100%);
     user-select: none;
     pointer-events: none;
+    transform: translate(0);
+    opacity: 0;
   }
 
   .close-menu svg {

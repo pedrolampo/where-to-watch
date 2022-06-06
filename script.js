@@ -225,6 +225,7 @@ searchBtn.addEventListener('click', (e) => {
 overlay.addEventListener('click', () => {
   menu.classList.add('collapsed');
   overlay.classList.add('hidden');
+  document.body.classList.remove('stop-scroll');
 });
 
 burgerMenuBtn.addEventListener('click', () => {
