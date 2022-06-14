@@ -52,8 +52,8 @@ function appendResults(results) {
     const resultEl = document.createElement('div');
     resultEl.classList.add('result');
     resultEl.innerHTML = `
-      <img clas="poster" src="https://image.tmdb.org/t/p/w500${result.poster_path}" alt="Poster of film" />
-      <div>
+      <img class="poster" src="https://image.tmdb.org/t/p/w500${result.poster_path}" alt="Poster of film" />
+      <div class="result-info">
         <h4>${result.title}</h4>
         <p>${result.overview}</p>
       </div>

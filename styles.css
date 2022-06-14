@@ -348,7 +348,7 @@ h3 a.go-back:hover {
   justify-content: space-between;
   width: 60%;
   align-items: center;
-  text-align: justify;
+  text-align: left;
 }
 
 #recomResults.results-container .result img {
@@ -360,8 +360,17 @@ h3 a.go-back:hover {
   font-size: 2rem;
 }
 
+#recomResults.results-container .result p {
+  width: 80%;
+  line-height: 1.25;
+}
+
 #recomResults.results-container .result div {
   padding: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 @media screen and (max-width: 720px) {
@@ -435,15 +444,11 @@ h3 a.go-back:hover {
 @media screen and (max-width: 1500px) {
   /* Recommendations */
   section.recom .result {
-    width: 80% !important;
+    width: 65% !important;
   }
 
   section.recom .result div {
     padding: 1rem !important;
-  }
-
-  section.recom .result div p {
-    text-align: justify;
   }
 }
 
