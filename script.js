@@ -48,7 +48,7 @@ searchBtn.addEventListener('click', (e) => {
     search = input.value.replace(/ /g, '%20');
 
     // Get the requested movie/tv-series ID
-    let url = `https://api.watchmode.com/v1/search/?apiKey=${API_KEY2}&search_field=name&search_value=${search}`;
+    let url = `https://api.watchmode.com/v1/search/?apiKey=${API_KEY}&search_field=name&search_value=${search}`;
     let results = [];
 
     // Search for Movies
@@ -122,6 +122,13 @@ searchBtn.addEventListener('click', (e) => {
                       movie[2].provider_name
                     )}">${movie[2].provider_name}</span>.`;
                     resultsContainer.append(result3);
+                    break;
+
+                  default:
+                    const result4 = document.createElement('div');
+                    result4.classList.add('result');
+                    result4.innerHTML = 'No results found.';
+                    resultsContainer.append(result4);
                     break;
                 }
               })
@@ -201,6 +208,13 @@ searchBtn.addEventListener('click', (e) => {
                       tvSeries[2].provider_name
                     )}">${tvSeries[2].provider_name}</span>.`;
                     resultsContainer.append(result3);
+                    break;
+
+                  default:
+                    const result4 = document.createElement('div');
+                    result4.classList.add('result');
+                    result4.innerHTML = 'No results found.';
+                    resultsContainer.append(result4);
                     break;
                 }
               })
