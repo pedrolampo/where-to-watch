@@ -20,7 +20,11 @@ const options = { method: 'GET' };
 
 let search = '';
 
-let country = localStorage.getItem('whereWatchCountry');
+let country;
+
+if (localStorage.getItem('whereWatchCountry')) {
+  country = localStorage.getItem('whereWatchCountry');
+} else country = 'AR';
 
 // Animation on the checkboxes
 label.forEach((el) => {
