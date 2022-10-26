@@ -72,7 +72,7 @@ searchBtn.addEventListener('click', (e) => {
             )
               .then((response) => response.json())
               .then((response) => {
-                if (!response.results[country]) {
+                if (results.length < 2 && !response.results[country]) {
                   clearResults();
                   const result = document.createElement('div');
                   result.innerHTML = `We couldn't find <span class="search">${input.value}</span> on your region.`;
@@ -163,7 +163,7 @@ searchBtn.addEventListener('click', (e) => {
             )
               .then((response) => response.json())
               .then((response) => {
-                if (!response.results[country]) {
+                if (results.length < 2 && !response.results[country]) {
                   clearResults();
                   const result = document.createElement('div');
                   result.innerHTML = `We couldn't find <span class="search">${input.value}</span> on your region.`;

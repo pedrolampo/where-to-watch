@@ -435,6 +435,10 @@ h3 a.go-back:hover {
     margin-top: 1rem;
   }
 
+  .main {
+    padding-bottom: 3em;
+  }
+
   footer {
     left: 0;
     padding: 0.5rem;
