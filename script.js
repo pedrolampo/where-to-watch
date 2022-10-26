@@ -60,10 +60,7 @@ searchBtn.addEventListener('click', (e) => {
 
           // If nothing is found return this
           if (!results.length) {
-            const result = document.createElement('div');
-            result.innerHTML = `We couldn't find <span class="search">${input.value}</span>.`;
-            result.classList.add('result');
-            resultsContainer.append(result);
+            throwSearchError(input.value);
             return;
           }
 
@@ -75,6 +72,14 @@ searchBtn.addEventListener('click', (e) => {
             )
               .then((response) => response.json())
               .then((response) => {
+                if (!response.results[country]) {
+                  clearResults();
+                  const result = document.createElement('div');
+                  result.innerHTML = `We couldn't find <span class="search">${input.value}</span> on your region.`;
+                  result.classList.add('result');
+                  resultsContainer.append(result);
+                  return;
+                }
                 let movie = response.results[country].flatrate;
 
                 // Append results based on how many there are
@@ -146,10 +151,7 @@ searchBtn.addEventListener('click', (e) => {
 
           // If nothing is found return this
           if (!results.length) {
-            const result = document.createElement('div');
-            result.innerHTML = `We couldn't find <span class="search">${input.value}</span>.`;
-            result.classList.add('result');
-            resultsContainer.append(result);
+            throwSearchError(input.value);
             return;
           }
 
@@ -161,6 +163,14 @@ searchBtn.addEventListener('click', (e) => {
             )
               .then((response) => response.json())
               .then((response) => {
+                if (!response.results[country]) {
+                  clearResults();
+                  const result = document.createElement('div');
+                  result.innerHTML = `We couldn't find <span class="search">${input.value}</span> on your region.`;
+                  result.classList.add('result');
+                  resultsContainer.append(result);
+                  return;
+                }
                 let tvSeries = response.results[country].flatrate;
 
                 // Append results based on how many there are
@@ -320,3 +330,11 @@ const providerColor = (provider) => {
       return 'apple';
   }
 };
+
+function throwSearchError(input) {
+  clearResults();
+  const result = document.createElement('div');
+  result.innerHTML = `We couldn't find <span class="search">${input}</span>.`;
+  result.classList.add('result');
+  resultsContainer.append(result);
+}
