@@ -72,14 +72,15 @@ searchBtn.addEventListener('click', (e) => {
             )
               .then((response) => response.json())
               .then((response) => {
+                if (results.length >= 2 && !response.results[country]) return;
                 if (results.length < 2 && !response.results[country]) {
-                  clearResults();
                   const result = document.createElement('div');
                   result.innerHTML = `We couldn't find <span class="search">${input.value}</span> on your region.`;
                   result.classList.add('result');
                   resultsContainer.append(result);
                   return;
                 }
+
                 let movie = response.results[country].flatrate;
 
                 // Append results based on how many there are
@@ -129,11 +130,40 @@ searchBtn.addEventListener('click', (e) => {
                     resultsContainer.append(result3);
                     break;
 
-                  default:
+                  case 4:
                     const result4 = document.createElement('div');
                     result4.classList.add('result');
-                    result4.innerHTML = 'No results found.';
+                    result4.innerHTML = `<span class='search'>${
+                      title.name
+                    }</span> is on <span class="${providerColor(
+                      tvSeries[0].provider_name
+                    )}">${
+                      tvSeries[0].provider_name
+                    }</span>, <span class="${providerColor(
+                      tvSeries[1].provider_name
+                    )}">${
+                      tvSeries[1].provider_name
+                    }</span>, <span class="${providerColor(
+                      tvSeries[2].provider_name
+                    )}">${
+                      tvSeries[2].provider_name
+                    }</span> and <span class="${providerColor(
+                      tvSeries[3].provider_name
+                    )}">${tvSeries[3].provider_name}.`;
                     resultsContainer.append(result4);
+                    break;
+
+                  case 5:
+                  case 6:
+                  case 7: {
+                    break;
+                  }
+
+                  default:
+                    const noResults = document.createElement('div');
+                    noResults.classList.add('result');
+                    noResults.innerHTML = 'No results found.';
+                    resultsContainer.append(noResults);
                     break;
                 }
               })
@@ -163,14 +193,15 @@ searchBtn.addEventListener('click', (e) => {
             )
               .then((response) => response.json())
               .then((response) => {
+                if (results.length >= 2 && !response.results[country]) return;
                 if (results.length < 2 && !response.results[country]) {
-                  clearResults();
                   const result = document.createElement('div');
                   result.innerHTML = `We couldn't find <span class="search">${input.value}</span> on your region.`;
                   result.classList.add('result');
                   resultsContainer.append(result);
                   return;
                 }
+
                 let tvSeries = response.results[country].flatrate;
 
                 // Append results based on how many there are
@@ -206,11 +237,11 @@ searchBtn.addEventListener('click', (e) => {
                     result3.classList.add('result');
                     result3.innerHTML = `<span class='search'>${
                       title.name
-                    }</span> is on </span> is on <span class="${providerColor(
+                    }</span> is on <span class="${providerColor(
                       tvSeries[0].provider_name
                     )}">${
                       tvSeries[0].provider_name
-                    }</span>, </span> is on <span class="${providerColor(
+                    }</span>, <span class="${providerColor(
                       tvSeries[1].provider_name
                     )}">${
                       tvSeries[1].provider_name
@@ -220,11 +251,40 @@ searchBtn.addEventListener('click', (e) => {
                     resultsContainer.append(result3);
                     break;
 
-                  default:
+                  case 4:
                     const result4 = document.createElement('div');
                     result4.classList.add('result');
-                    result4.innerHTML = 'No results found.';
+                    result4.innerHTML = `<span class='search'>${
+                      title.name
+                    }</span> is on <span class="${providerColor(
+                      tvSeries[0].provider_name
+                    )}">${
+                      tvSeries[0].provider_name
+                    }</span>, <span class="${providerColor(
+                      tvSeries[1].provider_name
+                    )}">${
+                      tvSeries[1].provider_name
+                    }</span>, <span class="${providerColor(
+                      tvSeries[2].provider_name
+                    )}">${
+                      tvSeries[2].provider_name
+                    }</span> and <span class="${providerColor(
+                      tvSeries[3].provider_name
+                    )}">${tvSeries[3].provider_name}.`;
                     resultsContainer.append(result4);
+                    break;
+
+                  case 5:
+                  case 6:
+                  case 7: {
+                    break;
+                  }
+
+                  default:
+                    const noResults = document.createElement('div');
+                    noResults.classList.add('result');
+                    noResults.innerHTML = 'No results found.';
+                    resultsContainer.append(noResults);
                     break;
                 }
               })
@@ -328,6 +388,12 @@ const providerColor = (provider) => {
 
     case 'Apple TV Plus':
       return 'apple';
+
+    case 'Crunchyroll':
+      return 'crunchyroll';
+
+    case 'Claro video':
+      return 'claro';
   }
 };
 

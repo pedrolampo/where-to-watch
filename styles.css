@@ -272,6 +272,12 @@ form {
 .result .apple {
   color: rgb(200, 240, 252);
 }
+.result .crunchyroll {
+  color: rgb(244, 117, 33);
+}
+.result .claro {
+  color: rgb(255, 50, 50);
+}
 
 footer {
   position: fixed;
